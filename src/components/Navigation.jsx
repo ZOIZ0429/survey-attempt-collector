@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
+// 导入语言相关的自定义钩子和翻译文件
 import { useLanguage } from '../hooks/useLanguage';
 import { labels } from '../utils/translations';
 
 const Navigation = () => {
   const location = useLocation();
+  // 使用语言上下文
   const { language, toggleLanguage } = useLanguage();
   const t = labels[language];
   
@@ -56,7 +58,7 @@ const Navigation = () => {
           </div>
         </div>
         
-        {/* 全局语言切换按钮 */}
+        {/* 直接在导航栏中实现语言切换按钮 */}
         <div style={{
           display: 'flex',
           gap: '0.5rem',
