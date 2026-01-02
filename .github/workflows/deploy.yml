@@ -19,9 +19,16 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20.19.0
-          cache: 'npm'
+          cache: 'npm' # 保留缓存功能，后续步骤会避免缓存干扰
 
-      # 安装依赖
+      # 关键修复：清理旧依赖、锁文件和 npm 缓存（解决依赖不完整问题）
+      - name: Clean old dependencies and cache
+        run: |
+          rm -rf node_modules
+          rm -f package-lock.json
+          npm cache clean --force
+
+      # 重新安装完整依赖（避免缓存复用不完整依赖）
       - name: Install dependencies
         run: npm install
 
