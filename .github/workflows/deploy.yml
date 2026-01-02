@@ -1,37 +1,37 @@
-name Deploy to GitHub Pages
+name: Deploy to Github Pages
 
-on
+on:
   # 推送到 main 分支时自动触发部署
-  push
-    branches [ main ]
+  push:
+    branches: [ main ]
 
-jobs
-  deploy
-    runs-on ubuntu-latest
-    steps
-      - uses actionscheckout@v4
-        with
-          submodules false  # 跳过子模块，避免之前的错误
-          fetch-depth 0
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: false
+          fetch-depth: 0
 
-      # 设置 Node.js 版本（兼容 Vite）
-      - name Set up Node.js
-        uses actionssetup-node@v4
-        with
-          node-version 20.19.0
-          cache 'npm'
+      # 设置 Node.js 版本
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.19.0
+          cache: 'npm'
 
       # 安装依赖
-      - name Install dependencies
-        run npm install
+      - name: Install dependencies
+        run: npm install
 
-      # 打包生成静态文件
-      - name Build project
-        run npm run build
+      # 打包项目
+      - name: Build project
+        run: npm run build
 
-      # 部署到 gh-pages 分支
-      - name Deploy to GitHub Pages
-        uses peaceirisactions-gh-pages@v4
-        with
-          github_token ${{ secrets.GITHUB_TOKEN }}
-          publish_dir .dist
+      # 部署到 GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
