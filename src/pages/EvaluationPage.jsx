@@ -230,9 +230,6 @@ const EvaluationPage = ({ addSubmission, recentNames = [] }) => {
           paddingTop: '1.5rem',
           borderTop: '1px solid #eee'
         }}>
-          <div style={{ fontSize: '0.9rem', color: '#666' }}>
-            <span role="img" aria-label="save">💾</span> 表单内容已自动保存为草稿
-          </div>
           <div style={{ display: 'flex', gap: '1rem' }}>
             <button
               type="button"

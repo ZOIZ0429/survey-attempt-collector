@@ -8,28 +8,6 @@ import './App.css';
 
 // 模拟数据
 const mockSubmissions = [
-  { 
-    id: 1, 
-    name: '张三', 
-    course: '高等数学', 
-    teacher: '张教授', 
-    gain: '学会了微积分基础', 
-    content: '导数与微分', 
-    date: '2024-01-15', 
-    rating: 4,
-    todayCourse: 'math' // 新增字段
-  },
-  { 
-    id: 2, 
-    name: '李四', 
-    course: '数据结构', 
-    teacher: '李教授', 
-    gain: '理解了二叉树遍历', 
-    content: '树与二叉树', 
-    date: '2024-01-14', 
-    rating: 5,
-    todayCourse: 'computer' // 新增字段
-  }
 ];
 
 function App() {

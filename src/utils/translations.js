@@ -69,7 +69,6 @@ export const labels = {
     navHome: 'Home',
     navHistory: 'History',
     navEvaluation: 'Evaluation',
-    footer: '© 2024 Course Evaluation System - All data for teaching demonstration only',
     
     // 首页
     homeTitle: 'Evaluation Data Overview',
